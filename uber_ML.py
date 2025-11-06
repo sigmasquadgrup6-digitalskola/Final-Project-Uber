@@ -41,11 +41,6 @@ def run_uber_ML():
     weekend = is_weekend(dt)
     hour_ohe = encode_hour_category(hour)
 
-    one_hot_columns = ['passenger_count', 'Radius Dist-KM', 'Hours', 'Day', 'Month', 'Years',
-       'Is_Weekend', 'Categorical_Hour_is_daytime',
-       'Categorical_Hour_is_early morning', 'Categorical_Hour_is_evening rush',
-       'Categorical_Hour_is_morning rush', 'Categorical_Hour_is_night']
-
 # 12 Fitur sesuai training
     features = np.array([[
         passenger_count,
@@ -57,11 +52,6 @@ def run_uber_ML():
         weekend,
         *hour_ohe
     ]])
-    #features_df = pd.DataFrame(features, columns=one_hot_columns)
-    #Dfbutton = st.button('Dataframe Model')
-    #if Dfbutton:
-    #    st.dataframe(features_df)
-
     
     if st.button("Prediksi tarif"):
         try:
@@ -76,3 +66,4 @@ def run_uber_ML():
         
 if __name__ =='__main__':
     run_uber_ML()
+
